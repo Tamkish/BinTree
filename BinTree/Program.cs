@@ -6,11 +6,38 @@ namespace BinTree
 	class BinTree<T> where T: IComparable<T>
 	{
 		Node root;
-
-
-
 		class Node
 		{
+			#region operators
+			public static bool operator < (Node node, T input)
+			{
+				return node.data.CompareTo(input) < 0;
+			}
+			public static bool operator >(Node node, T input)
+			{
+				return node.data.CompareTo(input) > 0;
+			}
+			public static bool operator <=(Node node, T input)
+			{
+				return node.data.CompareTo(input) <= 0;
+			}
+			public static bool operator >=(Node node, T input)
+			{
+				return node.data.CompareTo(input) >= 0;
+			}
+			public static bool operator ==(Node node, T input)
+			{
+				return node.data.CompareTo(input) == 0;
+			}
+			public static bool operator !=(Node node, T input)
+			{
+				return node.data.CompareTo(input) != 0;
+			}
+
+
+			#endregion
+
+
 			public T data;
 			public Node L, R;
 
@@ -33,7 +60,7 @@ namespace BinTree
 
 		public void AddRecursive(Node root, T input)
 		{
-			if (input < root.data)
+			if (root > input)
 			{
 				if (root.L == null)
 				{
@@ -56,6 +83,9 @@ namespace BinTree
 				}
 			}
 		}
+
+		//todo: recursive print
+		//todo: delete
 	}
 
 
