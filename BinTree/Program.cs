@@ -33,16 +33,27 @@ namespace BinTree
 
 		public void AddRecursive(Node root, T input)
 		{
-			if (root.data < input)
+			if (input < root.data)
 			{
-				if (true)
+				if (root.L == null)
 				{
-
+					root.L = new Node(input);
+				}
+				else
+				{
+					AddRecursive(root.L, input);
 				}
 			}
 			else
 			{
-
+				if (root.R == null)
+				{
+					root.R = new Node(input);
+				}
+				else
+				{
+					AddRecursive(root.R, input);
+				}
 			}
 		}
 	}
