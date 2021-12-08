@@ -58,7 +58,7 @@ namespace BinTree
 			AddRecursive(root, input);
 		}
 
-		public void AddRecursive(Node root, T input)
+		private void AddRecursive(Node root, T input)
 		{
 			if (root > input)
 			{
